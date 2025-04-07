@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Engineering Calculator</h1>
+        </header>
+        
+        <div class="calculator-container">
+            <div class="calculator-tabs">
+                <button class="tab-button active" data-tab="basic">Basic</button>
+                <button class="tab-button" data-tab="scientific">Scientific</button>
+                <button class="tab-button" data-tab="engineering">Engineering</button>
+                <button class="tab-button" data-tab="unit-converter">Unit Converter</button>
+            </div>
+            
+            <div class="display-container">
+                <div class="history" id="history"></div>
+                <div class="display" id="display">0</div>
+            </div>
+            
+            <div class="calculator-content">
+                <!-- Basic Calculator -->
+                <div class="calculator-panel active" id="basic-panel">
+                    <div class="calculator-buttons">
+                        <button class="btn clear" data-action="clear">C</button>
+                        <button class="btn" data-action="backspace"><i class="fas fa-backspace"></i></button>
+                        <button class="btn" data-action="percent">%</button>
+                        <button class="btn operator" data-action="divide">÷</button>
+                        
+                        <button class="btn number" data-num="7">7</button>
+                        <button class="btn number" data-num="8">8</button>
+                        <button class="btn number" data-num="9">9</button>
+                        <button class="btn operator" data-action="multiply">×</button>
+                        
+                        <button class="btn number" data-num="4">4</button>
+                        <button class="btn number" data-num="5">5</button>
+                        <button class="btn number" data-num="6">6</button>
+                        <button class="btn operator" data-action="subtract">−</button>
+                        
+                        <button class="btn number" data-num="1">1</button>
+                        <button class="btn number" data-num="2">2</button>
+                        <button class="btn number" data-num="3">3</button>
+                        <button class="btn operator" data-action="add">+</button>
+                        
+                        <button class="btn number" data-num="0">0</button>
+                        <button class="btn" data-action="decimal">.</button>
+                        <button class="btn equals" data-action="calculate">=</button>
+                    </div>
+                </div>
+                
+                <!-- Scientific Calculator -->
+                <div class="calculator-panel" id="scientific-panel">
+                    <div class="calculator-buttons scientific-buttons">
+                        <button class="btn function" data-action="sin">sin</button>
+                        <button class="btn function" data-action="cos">cos</button>
+                        <button class="btn function" data-action="tan">tan</button>
+                        <button class="btn clear" data-action="clear">C</button>
+                        <button class="btn" data-action="backspace"><i class="fas fa-backspace"></i></button>
+                        
+                        <button class="btn function" data-action="asin">sin<sup>-1</sup></button>
+                        <button class="btn function" data-action="acos">cos<sup>-1</sup></button>
+                        <button class="btn function" data-action="atan">tan<sup>-1</sup></button>
+                        <button class="btn function" data-action="pi">π</button>
+                        <button class="btn operator" data-action="divide">÷</button>
+                        
+                        <button class="btn function" data-action="log">log</button>
+                        <button class="btn number" data-num="7">7</button>
+                        <button class="btn number" data-num="8">8</button>
+                        <button class="btn number" data-num="9">9</button>
+                        <button class="btn operator" data-action="multiply">×</button>
+                        
+                        <button class="btn function" data-action="ln">ln</button>
+                        <button class="btn number" data-num="4">4</button>
+                        <button class="btn number" data-num="5">5</button>
+                        <button class="btn number" data-num="6">6</button>
+                        <button class="btn operator" data-action="subtract">−</button>
+                        
+                        <button class="btn function" data-action="power">x<sup>y</sup></button>
+                        <button class="btn number" data-num="1">1</button>
+                        <button class="btn number" data-num="2">2</button>
+                        <button class="btn number" data-num="3">3</button>
+                        <button class="btn operator" data-action="add">+</button>
+                        
+                        <button class="btn function" data-action="sqrt">√</button>
+                        <button class="btn function" data-action="exp">e<sup>x</sup></button>
+                        <button class="btn number" data-num="0">0</button>
+                        <button class="btn" data-action="decimal">.</button>
+                        <button class="btn equals" data-action="calculate">=</button>
+                    </div>
+                </div>
+                
+                <!-- Engineering Calculator -->
+                <div class="calculator-panel" id="engineering-panel">
+                    <div class="calculator-buttons engineering-buttons">
+                        <button class="btn function" data-action="ohmsLaw">Ohm's Law</button>
+                        <button class="btn function" data-action="powerCalc">Power Calc</button>
+                        <button class="btn function" data-action="resonance">Resonance</button>
+                        <button class="btn clear" data-action="clear">C</button>
+                        <button class="btn" data-action="backspace"><i class="fas fa-backspace"></i></button>
+                        
+                        <button class="btn function" data-action="decibel">dB Calc</button>
+                        <button class="btn function" data-action="stress">Stress</button>
+                        <button class="btn function" data-action="strain">Strain</button>
+                        <button class="btn function" data-action="e">e</button>
+                        <button class="btn operator" data-action="divide">÷</button>
+                        
+                        <button class="btn function" data-action="torque">Torque</button>
+                        <button class="btn number" data-num="7">7</button>
+                        <button class="btn number" data-num="8">8</button>
+                        <button class="btn number" data-num="9">9</button>
+                        <button class="btn operator" data-action="multiply">×</button>
+                        
+                        <button class="btn function" data-action="force">Force</button>
+                        <button class="btn number" data-num="4">4</button>
+                        <button class="btn number" data-num="5">5</button>
+                        <button class="btn number" data-num="6">6</button>
+                        <button class="btn operator" data-action="subtract">−</button>
+                        
+                        <button class="btn function" data-action="pressure">Pressure</button>
+                        <button class="btn number" data-num="1">1</button>
+                        <button class="btn number" data-num="2">2</button>
+                        <button class="btn number" data-num="3">3</button>
+                        <button class="btn operator" data-action="add">+</button>
+                        
+                        <button class="btn function" data-action="efficiency">Efficiency</button>
+                        <button class="btn function" data-action="scientific">×10<sup>n</sup></button>
+                        <button class="btn number" data-num="0">0</button>
+                        <button class="btn" data-action="decimal">.</button>
+                        <button class="btn equals" data-action="calculate">=</button>
+                    </div>
+                </div>
+                
+                <!-- Unit Converter -->
+                <div class="calculator-panel" id="unit-converter-panel">
+                    <div class="converter-container">
+                        <div class="converter-selection">
+                            <select id="conversion-type">
+                                <option value="length">Length</option>
+                                <option value="mass">Mass</option>
+                                <option value="temperature">Temperature</option>
+                                <option value="area">Area</option>
+                                <option value="volume">Volume</option>
+                                <option value="pressure">Pressure</option>
+                                <option value="energy">Energy</option>
+                                <option value="power">Power</option>
+                                <option value="frequency">Frequency</option>
+                            </select>
+                        </div>
+                        
+                        <div class="converter-inputs">
+                            <div class="input-group">
+                                <input type="number" id="from-value" placeholder="Enter value">
+                                <select id="from-unit"></select>
+                            </div>
+                            
+                            <div class="swap-button">
+                                <button id="swap-units"><i class="fas fa-exchange-alt"></i></button>
+                            </div>
+                            
+                            <div class="input-group">
+                                <input type="number" id="to-value" placeholder="Result" readonly>
+                                <select id="to-unit"></select>
+                            </div>
+                        </div>
+                        
+                        <button class="convert-button" id="convert-button">Convert</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="formula-display" id="formula-display">
+            <div class="formula-title">Formula Reference</div>
+            <div class="formula-content" id="formula-content">
+                Select an engineering calculation to see the formula
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Engineering Calculator &copy; 2025 | Created for educational purposes</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
